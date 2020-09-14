@@ -1,0 +1,54 @@
+.header3 {
+    display: block;
+    text-align: center;
+}
+
+.add_form {
+    display: block;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 60px;
+    text-align: left;
+}
+
+.inputtanggallahir {
+    display: block;
+    text-align: center;
+    align-items: center;
+}
+
+.divfordate {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header3 {
+    float: left;
+    width: 50%;
+    padding-left: 5%;
+}
+
+.header4 {
+    float: right;
+    height: 93%;
+    width: 39%;
+    background-color: #f6f6f6;
+}
+
+.form-row {
+    padding-top: 15px;
+}
+
+.buttonsubmit {
+    margin-top: 25px;
+    display: inline-block;
+    margin-left: 32%;
+    margin-right: 33%;
+    font-weight: bold;
+}
+
+.label {
+    text-align: center;
+}

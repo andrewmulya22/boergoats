@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boer Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/font-awesome-4.7.0\css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/home.css">
+    <link rel="stylesheet" href="/assets/farmTag.css">
+</head>
+
+<body>
+    <div class="header container-fluid">
+        <img class="imglogo" src="/assets/Logo.png">
+        <p class="eqtext">Equalindo Group</p>
+    </div>
+    <div class="header2 container-xl">
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item navli liblank"></li>
+            <li class="nav-item navli li1">
+                <a class="nav-link" href="/">
+                    <i class="fa fa-home fa-2x navimg" aria-hidden="true"></i>
+                    <p class="navlabel">Home</p>
+                </a>
+            </li>
+            <li class="nav-item navli liblank"></li>
+            <li class="nav-item navli li2">
+                <a class="nav-link" href="/add_boer">
+                    <i class="fa fa-plus-square fa-2x navimg" aria-hidden="true"></i>
+                    <p class="navlabel">Add</p>
+                </a>
+            </li>
+            <li class="nav-item navli liblank"></li>
+            <li class="nav-item navli li3">
+                <a class="nav-link" href="/pedigree">
+                    <i class="fa fa-tree fa-2x navimg" aria-hidden="true"></i>
+                    <p class="navlabel">Pedigree</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="header-top container-fluid" display>
+        <div class="form-row">
+            <h2 class="headingH2" style="text-align: center; margin: 3% 0% 2% 0%; padding-left: 40%;">Edit Farm Tag Binding</h2>
+        </div>
+        <div class="inputResponse" role="alert" style="text-align: center;margin-left: 20%; margin-right: 10%;margin-top: 2%;padding-top: 20px;">
+            <h5>Farm Tag Successfully Changed</h5>
+        </div>
+        <div class="form-row" style="text-align: center; padding: 0px 7% 60px 8%;">
+            <h4 class="form-group col-md-2" style="padding-top: 33px;">Batch 1</h4>
+            <div class="form-group col-md-2">
+                <label for="inputname">Batas Bawah</label>
+                <input type="number" step="1" class="form-control bbawah" name="bbawah" autocomplete="off" placeholder="Min" value="<%=data0.MINTAG %>">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputname">Batas Atas</label>
+                <input type="number" step="1" class="form-control batas" name="batas" autocomplete="off" placeholder="Max" value="<%=data0.MAXTAG %>">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputname">Nama Farm</label>
+                <input type="text" class="form-control farmname" name="farmname" placeholder="Nama Farm" autocomplete="off" value="<%=data0.FARMNAME %>">
+            </div>
+        </div>
+    </div>
+    <div class="header3 contrainer-fluid" display>
+        <form class="add_form addboer_form">
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Bawah</label>
+                    <input type="number" step="1" class="form-control bbawah" name="bbawah" autocomplete="off" placeholder="Min" value="<%=data1.MINTAG %>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Atas</label>
+                    <input type="number" step="1" class="form-control batas" name="batas" autocomplete="off" placeholder="Max" value="<%=data1.MAXTAG %>">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="inputname">Nama Farm</label>
+                    <input type="text" class="form-control farmname" name="farmname" placeholder="Nama Farm" autocomplete="off" value="<%=data1.FARMNAME %>">
+                </div>
+            </div>
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Bawah</label>
+                    <input type="number" step="1" class="form-control bbawah" name="bbawah" autocomplete="off" placeholder="Min" value="<%=data2.MINTAG %>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Atas</label>
+                    <input type="number" step="1" class="form-control batas" name="batas" autocomplete="off" placeholder="Max" value="<%=data2.MAXTAG %>">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="inputname">Nama Farm</label>
+                    <input type="text" class="form-control farmname" name="farmname" placeholder="Nama Farm" autocomplete="off" value="<%=data2.FARMNAME %>">
+                </div>
+            </div>
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Bawah</label>
+                    <input type="number" step="1" class="form-control bbawah" name="bbawah" autocomplete="off" placeholder="Min" value="<%=data3.MINTAG %>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Atas</label>
+                    <input type="number" step="1" class="form-control batas" name="batas" autocomplete="off" placeholder="Max" value="<%=data3.MAXTAG %>">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="inputname">Nama Farm</label>
+                    <input type="text" class="form-control farmname" name="farmname" placeholder="Nama Farm" autocomplete="off" value="<%=data3.FARMNAME %>">
+                </div>
+            </div>
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Bawah</label>
+                    <input type="number" step="1" class="form-control bbawah" name="bbawah" autocomplete="off" placeholder="Min" value="<%=data4.MINTAG %>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Atas</label>
+                    <input type="number" step="1" class="form-control batas" name="batas" autocomplete="off" placeholder="Max" value="<%=data4.MAXTAG %>">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="inputname">Nama Farm</label>
+                    <input type="text" class="form-control farmname" name="farmname" placeholder="Nama Farm" autocomplete="off" value="<%=data4.FARMNAME %>">
+                </div>
+            </div>
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Bawah</label>
+                    <input type="number" step="1" class="form-control bbawah" name="bbawah" autocomplete="off" placeholder="Min" value="<%=data5.MINTAG %>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Atas</label>
+                    <input type="number" step="1" class="form-control batas" name="batas" autocomplete="off" placeholder="Max" value="<%=data5.MAXTAG %>">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="inputname">Nama Farm</label>
+                    <input type="text" class="form-control farmname" name="farmname" placeholder="Nama Farm" autocomplete="off" value="<%=data5.FARMNAME %>">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="header4 contrainer-fluid" display>
+        <form class="add_form addboer_form">
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Bawah</label>
+                    <input type="number" step="1" class="form-control bbawah" name="bbawah" autocomplete="off" placeholder="Min" value="<%=data6.MINTAG %>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Atas</label>
+                    <input type="number" step="1" class="form-control batas" name="batas" autocomplete="off" placeholder="Max" value="<%=data6.MAXTAG %>">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="inputname">Nama Farm</label>
+                    <input type="text" class="form-control farmname" name="farmname" placeholder="Nama Farm" autocomplete="off" value="<%=data6.FARMNAME %>">
+                </div>
+            </div>
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Bawah</label>
+                    <input type="number" step="1" class="form-control bbawah" name="bbawah" autocomplete="off" placeholder="Min" value="<%=data7.MINTAG %>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Atas</label>
+                    <input type="number" step="1" class="form-control batas" name="batas" autocomplete="off" placeholder="Max" value="<%=data7.MAXTAG %>">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="inputname">Nama Farm</label>
+                    <input type="text" class="form-control farmname" name="farmname" placeholder="Nama Farm" autocomplete="off" value="<%=data7.FARMNAME %>">
+                </div>
+            </div>
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Bawah</label>
+                    <input type="number" step="1" class="form-control bbawah" name="bbawah" autocomplete="off" placeholder="Min" value="<%=data8.MINTAG %>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Atas</label>
+                    <input type="number" step="1" class="form-control batas" name="batas" autocomplete="off" placeholder="Max" value="<%=data8.MAXTAG %>">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="inputname">Nama Farm</label>
+                    <input type="text" class="form-control farmname" name="farmname" placeholder="Nama Farm" autocomplete="off" value="<%=data8.FARMNAME %>">
+                </div>
+            </div>
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Bawah</label>
+                    <input type="number" step="1" class="form-control bbawah" name="bbawah" autocomplete="off" placeholder="Min" value="<%=data9.MINTAG %>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Atas</label>
+                    <input type="number" step="1" class="form-control batas" name="batas" autocomplete="off" placeholder="Max" value="<%=data9.MAXTAG %>">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="inputname">Nama Farm</label>
+                    <input type="text" class="form-control farmname" name="farmname" placeholder="Nama Farm" autocomplete="off" value="<%=data9.FARMNAME %>">
+                </div>
+            </div>
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Bawah</label>
+                    <input type="number" step="1" class="form-control bbawah" name="bbawah" autocomplete="off" placeholder="Min" value="<%=data10.MINTAG %>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputname">Batas Atas</label>
+                    <input type="number" step="1" class="form-control batas" name="batas" autocomplete="off" placeholder="Max" value="<%=data10.MAXTAG %>">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="inputname">Nama Farm</label>
+                    <input type="text" class="form-control farmname" name="farmname" placeholder="Nama Farm" autocomplete="off" value="<%=data10.FARMNAME %>">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="header-bottom container-fluid" display>
+        <input type="submit" class="btn btn-primary col-md-4 buttonsubmit" onclick="farmTag()" style="margin-top: 30px;">
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js " integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy " crossorigin="anonymous "></script>
+<script src="/assets/moment.js"></script>
+<script src="/assets/combodate.js"></script>
+<link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css " />
+
+<script>
+    $(function() {
+        $('.inputResponse').hide()
+    })
+
+    function farmTag() {
+        var bbawah = $('.bbawah')
+        var batas = $('.batas')
+        var farmname = $('.farmname')
+        var count = 0;
+        for (var i = 0; i < farmname.length; i++) {
+            console.log(farmname.length)
+            if (bbawah.eq(i).val() != "") console.log(bbawah.eq(i).val())
+            if (batas.eq(i).val() != "") console.log(batas.eq(i).val())
+            if (farmname.eq(i).val() != "") console.log(farmname.eq(i).val())
+            $.ajax({
+                type: "POST",
+                url: "/farmTag",
+                data: {
+                    num: i + 1,
+                    bbawah: bbawah.eq(i).val(),
+                    batas: batas.eq(i).val(),
+                    farmname: farmname.eq(i).val()
+                },
+                success: function(res) {
+                    if (res == "S") {
+                        count++
+                    }
+                    if (count == 11) {
+                        $('.headingH2').hide()
+                        $('.inputResponse').show()
+                        $('.inputResponse').addClass("alert alert-success")
+                    }
+                }
+            })
+        }
+    }
+</script>
+
+</html>

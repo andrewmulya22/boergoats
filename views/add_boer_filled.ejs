@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boer Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/font-awesome-4.7.0\css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/home.css">
+    <link rel="stylesheet" href="/assets/add_boer.css">
+</head>
+
+<body>
+    <div class="header container-fluid">
+        <img class="imglogo" src="/assets/Logo.png">
+        <p class="eqtext">Equalindo Group</p>
+    </div>
+    <div class="header2 container-xl">
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item navli liblank"></li>
+            <li class="nav-item navli li1">
+                <a class="nav-link" href="/">
+                    <i class="fa fa-home fa-2x navimg" aria-hidden="true"></i>
+                    <p class="navlabel">Home</p>
+                </a>
+            </li>
+            <li class="nav-item navli liblank"></li>
+            <li class="nav-item navli li2 active">
+                <a class="nav-link" href="/pedigree">
+                    <i class="fa fa-plus-square fa-2x navimg" aria-hidden="true"></i>
+                    <p class="navlabel">Add</p>
+                </a>
+            </li>
+            <li class="nav-item navli liblank"></li>
+            <li class="nav-item navli li3">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-tree fa-2x navimg" aria-hidden="true"></i>
+                    <p class="navlabel">Pedigree</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="header3 contrainer-fluid" display>
+        <form class="add_form addboer_form">
+            <div class="form-row">
+                <h2 style="text-align: center; margin-bottom: 30px; padding-left: 25%;">Add New Boer Information</h2>
+            </div>
+            <div class="inputResponse" role="alert" style="text-align: center;"></div>
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-4">
+                    <label for="inputeartag">Eartag</label>
+                    <input type="number" class="form-control" id="inputeartag" name="inputeartag" placeholder="Eartag..." autocomplete="off" value="<%= id %>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputname">Nama</label>
+                    <input type="text" class="form-control" id="inputname" name="inputname" placeholder="Nama..." value="<%= name %>" autocomplete="off">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputjeniskel">Jenis Kelamin</label>
+                    <select class="form-control" id="jeniskel" name="jeniskel">
+                        <option>Laki-laki</option>
+                        <option id="jenisPer">Perempuan</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputtanggallahir" class="inputtanggallahir">Tanggal Lahir</label>
+                    <div class="divfordate input-group form-inline">
+                        <input type="text" id="tanggallahir" class="inputtanggallahir datealign" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="tanggallahir">
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputtanggalsapih" class="inputtanggallahir">Tanggal Sapih</label>
+                    <div class="divfordate input-group form-inline">
+                        <input type="text" id="tanggalsapih" class="inputtanggallahir datealign" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="tanggalsapih">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-3">
+                    <label for="inputNamaAyah">Ayah</label>
+                    <input type="text" class="form-control" id="inputNamaAyah" placeholder="Nama Ayah..." name="inputNamaAyah" autocomplete="off">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputETAyah">Eartag</label>
+                    <input type="number" class="form-control" id="inputETAyah" placeholder="Eartag Ayah..." name="inputETAyah" autocomplete="off">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputNamaIbu">Ibu</label>
+                    <input type="text" class="form-control" id="inputNamaIbu" placeholder="Nama Ibu..." name="inputNamaIbu" autocomplete="off">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputETIbu">Eartag</label>
+                    <input type="number" class="form-control" id="inputETIbu" placeholder="Eartag Ibu..." name="inputETIbu" autocomplete="off">
+                </div>
+            </div>
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-4">
+                    <label for="blahir">Berat Lahir</label>
+                    <input type="number" step="0.01" class="form-control" id="blahir" name="blahir" autocomplete="off">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="bb1bln">BB 1 Bulan</label>
+                    <input type="number" step="0.01" class="form-control" id="bb1bln" name="bb1bln" autocomplete="off">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="bb3bln">BB 3 Bulan</label>
+                    <input type="number" step="0.01" class="form-control" id="bb3bln" name="bb3bln" autocomplete="off">
+                </div>
+            </div>
+            <div class="form-row" style="text-align: center;">
+                <div class="form-group col-md-6">
+                    <label for="bb6bln">BB 6 Bulan</label>
+                    <input type="number" step="0.01" class="form-control" id="bb6bln" name="bb6bln" autocomplete="off">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="bb1thn">BB 1 Tahun</label>
+                    <input type="number" step="0.01" class="form-control" id="bb1thn" name="bb1thn" autocomplete="off">
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary col-md-4 buttonsubmit" value="SUBMIT">
+        </form>
+    </div>
+    <div class="header4 contrainer-fluid " display>
+        <img src="/assets/Boer.png" style="margin-top: 20%; margin-left: 15%; max-width: 60%;">
+        <h2 style="text-align: center;">Equalindo Farm</h2>
+        <h4 style="text-align: center;">PT Equalindo Makmur Alam Sejahtera</h4>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js " integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy " crossorigin="anonymous "></script>
+<script src="/assets/moment.js"></script>
+<script src="/assets/combodate.js"></script>
+<link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css " />
+
+<script>
+    $(function() {
+        var jenis_kel = "<%= jenis_kel %>"
+        if (jenis_kel == "Perempuan") {
+            $('#jenisPer').attr("selected", "selected")
+        }
+        $('#tanggallahir').combodate({
+            customClass: 'form-control'
+        });
+        $('#tanggalsapih').combodate({
+            customClass: 'form-control'
+        });
+        $('.addboer_form').on("submit", function(e) {
+            var formData = $(this).serialize()
+            e.preventDefault()
+            $.ajax({
+                type: "POST",
+                url: "/add_boer",
+                data: formData,
+                success: function(res) {
+                    if (res == "F") {
+                        if ($('.inputResponse').hasClass("alert-success")) {
+                            $('.inputResponse').removeClass("alert-success")
+                        }
+                        $('.inputResponse').addClass("alert alert-danger")
+                        $('.inputResponse').html("Duplicate Entry (Eartag)")
+                    } else if (res == "S") {
+                        if ($('.inputResponse').hasClass("alert-danger")) {
+                            $('.inputResponse').removeClass("alert-danger")
+                        }
+                        $('.inputResponse').addClass("alert alert-success")
+                        $('.inputResponse').html("Successfully added new goat")
+                    } else {
+                        if ($('.inputResponse').hasClass("alert-success")) {
+                            $('.inputResponse').removeClass("alert-success")
+                        }
+                        $('.inputResponse').addClass("alert alert-danger")
+                        $('.inputResponse').html("Insert Name/Eartag")
+                    }
+                }
+            })
+        })
+    });
+</script>
+
+</html>

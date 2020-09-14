@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/jquery-table2excel/dist/jquery.table2excel.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boer Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/home.css">
+</head>
+
+<body>
+    <div class="header container-fluid">
+        <img class="imglogo" src="/assets/Logo.png">
+        <p class="eqtext">Equalindo Group</p>
+    </div>
+    <div class="header2 container-xl">
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item navli liblank"></li>
+            <li class="nav-item navli li1 active">
+                <a class="nav-link" href="/">
+                    <i class="fa fa-home fa-2x navimg" aria-hidden="true"></i>
+                    <p class="navlabel">Home</p>
+                </a>
+            </li>
+            <li class="nav-item navli liblank"></li>
+            <li class="nav-item navli li2">
+                <a class="nav-link" href="/add_boer">
+                    <i class="fa fa-plus-square fa-2x navimg" aria-hidden="true"></i>
+                    <p class="navlabel">Add</p>
+                </a>
+            </li>
+            <li class="nav-item navli liblank"></li>
+            <li class="nav-item navli li3">
+                <a class="nav-link" href="/pedigree">
+                    <i class="fa fa-tree fa-2x navimg" aria-hidden="true"></i>
+                    <p class="navlabel">Pedigree</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="header3 contrainer-fluid" display>
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2 class="table_title">Boer Goats Lists</h2>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn bg-transparent dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 50px; border: 0.5px solid grey">
+                      Sort
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/sort/id">Eartag</a>
+                        <a class="dropdown-item" href="/sort/name">Nama</a>
+                        <a class="dropdown-item" href="/sort/jenis_kel">Jenis Kelamin</a>
+                        <a class="dropdown-item" href="/sort/tanggal_lahir">Tanggal Lahir</a>
+                        <a class="dropdown-item" href="/sort/tanggal_sapih">Tanggal Sapih</a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="search-box input_txt">
+                        <i id="input_img" class="fa fa-search icon" aria-hidden="true"></i>
+                        <input type="text" id="input_txt" class="form-control" placeholder="Search Eartag or Name...">
+                    </div>
+                </div>
+            </div>
+            <div class="row boer_table">
+                <div class="col-sm-12">
+                    <table class="table-striped table-bordered table-sm boerTable" cellspacing="0" width="100%">
+                        <thead class="test11">
+                            <tr>
+                                <th class="th-sm" width="30px" rowspan="2" colspan="1">No
+                                </th>
+                                <th class="th-sm" width="120px" rowspan="2" colspan="1">Eartag
+                                </th>
+                                <th class="th-sm" width="200px" rowspan="2" colspan="1">Nama Farm
+                                </th>
+                                <th class="th-sm" width="150px" rowspan="2" colspan="1">Nama
+                                </th>
+                                <th class="th-sm" width="30px" rowspan="2" colspan="1">L/P
+                                </th>
+                                <th class="th-sm" width="100px" rowspan="2" colspan="1">Tanggal Lahir
+                                </th>
+                                <th class="th-sm" width="150px" rowspan="2" colspan="1">Bapak
+                                </th>
+                                <th class="th-sm" width="150px" rowspan="2" colspan="1">Ibu
+                                </th>
+                                <th class="th-sm" width="50px" rowspan="2" colspan="1">Berat Lahir
+                                </th>
+                                <th class="th-sm" width="100px" rowspan="2" colspan="1">Tanggal Sapih
+                                </th>
+                                <th class="th-sm" width="200px" rowspan="1" colspan="4">Berat Badan(kg)
+                                </th>
+                                <th class="th-sm tabEditDelete" width="40px" rowspan="2" colspan="1">Edit
+                                </th>
+                                <th class="th-sm tabEditDelete" width="40px" rowspan="2" colspan="1">Del
+                                </th>
+
+                            </tr>
+                            <tr>
+                                <th class="th-sm" width="50px">1 Bulan
+                                </th>
+                                <th class="th-sm" width="50px">3 Bulan
+                                </th>
+                                <th class="th-sm" width="50px">6 Bulan
+                                </th>
+                                <th class="th-sm" width="50px">1 Tahun
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%- table %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary farmTag" onclick="location.href='/farmTag'" style="margin: 50px 20px 50px 50px;">Edit Farm Tag</button>
+        <button type="button" class="btn btn-success exportTable" style="margin: 50px 50px 50px 20px;">Export to Excel</button>
+    </div>
+    <div id="modalDelete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align: left;">Delete Data?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Deleted data cannot be reverted</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalDelete2" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align: left;">Delete Data?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Deleted data cannot be reverted</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="confirmDelete2">Delete</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script>
+    $(function() {
+        var $textbox = $('#input_txt')
+        var $deleteBtnID = $('.deleteButton .btnid')
+        var $deleteBtnName = $('.deleteButton .btnname')
+        var $row = $('.counterRow')
+        var $rows = $('.counterRow .eartag')
+        var $rows2 = $('.counterRow .name')
+        var deleteID
+        var deleteName
+        $textbox.on("keyup", function() {
+            var searchWord = $textbox.val()
+            loopSearch(searchWord.toUpperCase())
+        })
+        $('.exportTable').on("click", function() {
+            $(".boerTable").table2excel({
+                exclude: ".tabEditDelete",
+                name: "Boer Goats Sheet",
+                filename: "Boer Goats.xls",
+                preserveColors: true
+            });
+        })
+        $deleteBtnID.on("click", function() {
+            deleteID = $(this).attr('id')
+            $('#modalDelete').modal('show')
+        })
+        $deleteBtnName.on("click", function() {
+            deleteName = $(this).attr('id')
+            console.log(deleteName)
+            $('#modalDelete2').modal('show')
+        })
+        $('#confirmDelete').on("click", function() {
+            $.ajax({
+                type: "POST",
+                url: "/delete_boer/id",
+                data: {
+                    sentData: deleteID
+                },
+                success: function(res) {
+                    if (res == "S") location.href = "/"
+                }
+            })
+        })
+        $('#confirmDelete2').on("click", function() {
+            $.ajax({
+                type: "POST",
+                url: "/delete_boer/name",
+                data: {
+                    sentData: deleteName
+                },
+                success: function(res) {
+                    if (res == "S") location.href = "/"
+                }
+            })
+        })
+
+        function loopSearch(keyWord) {
+            for (i = 0; i < $rows.length; i++) {
+                var idKey = $rows.eq(i).text()
+                var nameKey = $rows2.eq(i).text()
+                if (idKey.indexOf(keyWord) > -1) {
+                    $row.eq(i).show()
+                } else {
+                    if (nameKey.toUpperCase().indexOf(keyWord) > -1) {
+                        $row.eq(i).show()
+                    } else {
+                        $row.eq(i).hide()
+                    }
+                }
+            }
+        }
+    })
+</script>
+
+</html>

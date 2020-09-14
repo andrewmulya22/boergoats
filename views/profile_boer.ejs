@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boer Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/font-awesome-4.7.0\css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/home.css">
+    <link rel="stylesheet" href="/assets/add_boer.css">
+</head>
+
+<body>
+    <div class="header container-fluid">
+        <img class="imglogo" src="/assets/Logo.png">
+        <p class="eqtext">Equalindo Group</p>
+    </div>
+    <div class="header2 container-xl">
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item navli liblank"></li>
+            <li class="nav-item navli li1">
+                <a class="nav-link" href="/">
+                    <i class="fa fa-home fa-2x navimg" aria-hidden="true"></i>
+                    <p class="navlabel">Home</p>
+                </a>
+            </li>
+            <li class="nav-item navli liblank"></li>
+            <li class="nav-item navli li2 active">
+                <a class="nav-link" href="/add_boer">
+                    <i class="fa fa-plus-square fa-2x navimg" aria-hidden="true"></i>
+                    <p class="navlabel">Add</p>
+                </a>
+            </li>
+            <li class="nav-item navli liblank"></li>
+            <li class="nav-item navli li3">
+                <a class="nav-link" href="/pedigree">
+                    <i class="fa fa-tree fa-2x navimg" aria-hidden="true"></i>
+                    <p class="navlabel">Pedigree</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="header3 contrainer-fluid">
+        <form class="add_form addboer_form">
+            <div class="form-row">
+                <h2 style="text-align: center; margin-bottom: 30px; padding-left: 25%;">Edit Boer Information</h2>
+            </div>
+            <div class="inputResponse" role="alert" style="text-align: center;"></div>
+            <div class="card cold-md-6">
+                <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;">Profile</h4>
+                    <p class="card-text" style="padding-left: 30%;padding-top: 1%;">
+                        <span class="a">Eartag</span> <span class="b">:</span> <span class="c"><%= data.id %><br></span>
+                        <span class="a">Nama</span> <span class="b">:</span> <span class="c"><%= data.name %><br></span>
+                        <span class="a">Jenis Kelamin</span> <span class="b">:</span> <span class="c"><%= data.jenis_kel %><br></span>
+                        <span class="a">Tanggal Lahir</span> <span class="b">:</span> <span class="c"><%= data.tanggal_lahir %><br></span>
+                        <span class="a">Tanggal Sapih</span> <span class="b">:</span> <span class="c"><%= data.tanggal_sapih %><br></span>
+                    </p>
+                </div>
+            </div>
+            <div class="card cold-md-6" style="margin-top: 30px;">
+                <div id="checkAlert1" role="alert"></div>
+                <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;">Pedigree (Father)</h4>
+                    <p class="card-text" style="padding-left: 30%;padding-top: 1%;">
+                        <span class="a">Nama Ayah</span> <span class="b">:</span> <span class="c"><%= data.father_name %><br></span>
+                        <span class="a">Eartag Ayah</span> <span class="b">:</span> <span class="c"><%= data.father_id %><br></span>
+                    </p>
+                </div>
+                <button type="button" class="btn btn-primary" id="btnCheck1">Check</button>
+            </div>
+            <div class="card cold-md-6" style="margin-top: 30px;">
+                <div id="checkAlert2" role="alert"></div>
+                <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;">Pedigree (Mother)</h4>
+                    <p class="card-text" style="padding-left: 30%;padding-top: 1%;">
+                        <span class="a">Nama Ibu</span> <span class="b">:</span> <span class="c"><%= data.mother_name %><br></span>
+                        <span class="a">Eartag Ibu</span> <span class="b">:</span> <span class="c"><%= data.mother_id %><br></span>
+                    </p>
+                </div>
+                <button type="button" class="btn btn-primary" id="btnCheck2">Check</button>
+            </div>
+            <div class="card cold-md-6" style="margin-top: 30px;">
+                <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;">Weight</h4>
+                    <p class="card-text" style="padding-left: 30%;padding-top: 1%;">
+                        <span class="a">Berat Lahir</span> <span class="b">:</span> <span class="c"><%= data.berat_lahir %> (kg)<br></span>
+                        <span class="a">Berat 1 Bulan</span> <span class="b">:</span> <span class="c"><%= data.berat_1bln %> (kg)<br></span>
+                        <span class="a">Berat 3 Bulan</span> <span class="b">:</span> <span class="c"><%= data.berat_3bln %> (kg)<br></span>
+                        <span class="a">Berat 6 Bulan</span> <span class="b">:</span> <span class="c"><%= data.berat_6bln %> (kg)<br></span>
+                        <span class="a">Berat 1 Tahun</span> <span class="b">:</span> <span class="c"><%= data.berat_1thn %> (kg)<br></span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-row" style="text-align: center; padding-right: 8%; margin-bottom: 40px;">
+                <div class="col-lg-4">
+                    <input type="submit" class="btn btn-primary col-md-6 buttonsubmit" id="buttonEdit" value="EDIT">
+                </div>
+                <div class="col-lg-4">
+                    <input type="cancel" class="btn btn-secondary col-md-6 buttonsubmit" id="buttonBack" value="BACK">
+                </div>
+                <div class="col-lg-4">
+                    <input type="delete" class="btn btn-danger col-md-6 buttonsubmit" value="DELETE" data-toggle="modal" data-target="#modalDelete">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="header4 contrainer-fluid " display>
+        <img src="/assets/Boer.png" style="margin-top: 20%; margin-left: 15%; max-width: 60%;">
+        <h2 style="text-align: center;">
+            <%= data.name %> (
+                <%= data.id %> )
+        </h2>
+    </div>
+    <div id="modalDelete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align: left;">Delete Data?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Deleted data cannot be reverted</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js " integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy " crossorigin="anonymous "></script>
+<script src="/assets/combodate.js"></script>
+<script src="/assets/moment.js"></script>
+<link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css " />
+
+<script>
+    $(function() {
+        var id = "<%= data.id %>"
+        var name = "<%= data.name %>"
+
+        $('#tanggallahir').combodate({
+            customClass: 'form-control'
+        });
+        $('#tanggalsapih').combodate({
+            customClass: 'form-control'
+        });
+        $('.addboer_form').on("submit", function(e) {
+            var formData = $(this).serialize()
+            e.preventDefault()
+            $.ajax({
+                type: "POST",
+                url: "/edit_boer",
+                data: formData,
+                success: function(res) {
+                    if (res == "S") {
+                        $('.inputResponse').addClass("alert alert-success")
+                        $('.inputResponse').html("Successfully updated goat's info")
+                    }
+                }
+            })
+        })
+        $('#buttonBack').on("click", function() {
+            location.href = "/"
+        })
+        $('#buttonEdit').on("click", function() {
+            if (id == "") location.href = "/edit/name/<%= data.name %>"
+            else location.href = "/edit/id/<%= data.id %>"
+        })
+        $('#confirmDelete').on("click", function() {
+            if (id == "") {
+                urls = "/delete_boer/name"
+                delData = name
+            } else {
+                urls = "/delete_boer/id"
+                delData = id
+            }
+            $.ajax({
+                type: "POST",
+                url: urls,
+                data: {
+                    sentData: delData
+                },
+                success: function(res) {
+                    if (res == "S") location.href = "/"
+                }
+            })
+        })
+        $('#btnCheck1').on("click", function() {
+            var fname = "<%= data.father_name %>"
+            var fid = "<%= data.father_id %>"
+            let passData
+            if (fid == "") url = "/profile/name/" + fname
+            else url = "/profile/id/" + fid
+            $.ajax({
+                type: "POST",
+                url: "/check_goat",
+                data: {
+                    name: fname,
+                    id: fid
+                },
+                success: function(res) {
+                    if (res == "E") {
+                        $("#checkAlert1").addClass("alert alert-primary")
+                        $("#checkAlert1").html("<span style='line-height: 40px;'>Father exists</span><button type='button' class='btn btn-primary' style='float: right;' onclick='location.href =&quot;" + url + "&quot;'>Visit</button>")
+                    } else {
+                        $("#checkAlert1").addClass("alert alert-danger")
+                        $("#checkAlert1").html("<span style='line-height: 40px;'>Father doesn't exists</span><button type='button' class='btn btn-primary' style='float: right;' onclick='redirectAdd(&quot;" + fname + "&quot;, &quot;Laki-laki&quot;, " + fid + ")'>Update</button>")
+                    }
+                }
+            })
+        })
+        $('#btnCheck2').on("click", function() {
+            var mname = "<%= data.mother_name %>"
+            var mid = "<%= data.mother_id %>"
+            if (mid == "") url = "/profile/name/" + mname
+            else url = "/profile/id/" + mid
+            $.ajax({
+                type: "POST",
+                url: "/check_goat",
+                data: {
+                    name: mname,
+                    id: mid
+                },
+                success: function(res) {
+                    if (res == "E") {
+                        $("#checkAlert2").addClass("alert alert-primary")
+                        $("#checkAlert2").html("<span style='line-height: 40px;'>Father exists</span><button type='button' class='btn btn-primary' style='float: right;' onclick='location.href =&quot;" + url + "&quot;'>Visit</button>")
+                    } else {
+                        $("#checkAlert2").addClass("alert alert-danger")
+                        $("#checkAlert2").html("<span style='line-height: 40px;'>Mother doesn't exists</span><button type='button' class='btn btn-primary' style='float: right;' onclick='redirectAdd(&quot;" + mname + "&quot;, &quot;Perempuan&quot;, " + mid + ")'>Update</button>")
+                    }
+                }
+            })
+        })
+    });
+
+    function redirectAdd(name, jenis_kel, id) {
+        $.ajax({
+            type: "POST",
+            url: "/add_boer/filled",
+            data: {
+                name: name,
+                id: id
+            },
+            success: function(res) {
+                if (res == "N") {
+                    location.href = "/add_boer"
+                } else {
+                    if (jenis_kel == "Perempuan") location.href = "/add_boer/p/" + id + "/" + name
+                    else location.href = "/add_boer/l/" + id + "/" + name
+                }
+            }
+        })
+    }
+</script>
+
+<style>
+    .a {
+        font-weight: bold;
+        display: inline-block;
+        width: 130px;
+    }
+    
+    .b {
+        display: inline-block;
+        width: 30px;
+    }
+</style>
+
+</html>
